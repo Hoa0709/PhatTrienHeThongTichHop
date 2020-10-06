@@ -1,0 +1,2 @@
+module BaiTap_java {
+}
