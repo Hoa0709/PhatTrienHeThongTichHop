@@ -7,11 +7,10 @@ import java.net.URLConnection;
 
 public class getUrlConnection {
 	public static void main(String[] args) {
-		 URL u;
-		 URLConnection uc;
+		 String a = "http://www.google.com";
 		 try {
-			 u = new URL("http://iuh.edu.vn");
-			 uc = u.openConnection();
+			 URL u = new URL(a);
+			 URLConnection uc = u.openConnection( );
 		 } catch (MalformedURLException e) {
 			 e.printStackTrace();
 		 }
