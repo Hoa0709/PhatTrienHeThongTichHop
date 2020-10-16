@@ -1,4 +1,4 @@
-package Lab1;
+package TestNetWork;
 
 import java.io.IOException;
 import java.net.MalformedURLException;

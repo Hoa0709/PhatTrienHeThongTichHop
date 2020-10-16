@@ -10,6 +10,7 @@ import java.util.Scanner;
 public class MyServer {
 	public static void main(String[] args) {
 		try {
+		@SuppressWarnings("resource")
 		ServerSocket server = new ServerSocket(9540);
 		System.out.println("Server da duoc tao");
 		Socket client = server.accept();

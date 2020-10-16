@@ -1,4 +1,4 @@
-package Lab1;
+package TestNetWork;
 
 import java.net.InetAddress;
 import java.net.UnknownHostException;
