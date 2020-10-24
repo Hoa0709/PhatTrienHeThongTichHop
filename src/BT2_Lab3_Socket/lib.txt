@@ -1,6 +1,0 @@
-java
-c++
-c#
-ruby
-javascript
-My SQL
