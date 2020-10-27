@@ -1,19 +1,17 @@
-package Client_Server_Communication;
-
 import java.io.IOException;
 import java.io.PrintStream;
 import java.net.Socket;
 import java.net.UnknownHostException;
 import java.util.Scanner;
 
-public class Client {
+public class MC {
 	private static Scanner inFromServer;
 	private static Scanner scan;
 
 	public static void main(String[] args) {
 		try {
 		@SuppressWarnings("resource")
-		Socket client = new Socket("192.168.56.104", 9540);
+		Socket client = new Socket("192.168.56.1", 9540);
 		System.out.println("Client da duoc tao");
 		inFromServer = new Scanner(client.getInputStream());
 		PrintStream outToServer = new PrintStream(client.getOutputStream());
