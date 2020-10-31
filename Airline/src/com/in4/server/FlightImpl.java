@@ -118,7 +118,7 @@ public class FlightImpl extends UnicastRemoteObject implements IFlight{
 	public String Order(String x, int y,String user,String password) throws RemoteException {
 		String s = null;
 		// TODO Auto-generated method stub
-		if(user.equals("Iamagoodboy")&&password.equals("123")) {
+		if(user.equals("iamagoodboy")&&password.equals("123")) {
 			Flight[] data = Data();
 			for (int i = 0; i < data.length; i++) {
 				if(data[i].getId().equals(x)) {

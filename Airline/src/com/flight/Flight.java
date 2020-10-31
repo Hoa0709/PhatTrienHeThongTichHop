@@ -4,10 +4,10 @@ import java.io.Serializable;
 
 public class Flight implements Serializable{
 	/**
-	 * 
+	 * 		
 	 */
 	private static final long serialVersionUID = 1L;
-	private int Total,Odered,Empty;
+	private int Total,Odered;
 	private String Flytime,Date,Id,From,To;
 	
 	public String getDate() { return Date; }
