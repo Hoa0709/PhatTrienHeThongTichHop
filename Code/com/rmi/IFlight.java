@@ -13,4 +13,5 @@ public interface IFlight extends Remote{
 	public String Display(int x) throws RemoteException;
 	public String[] DataId() throws RemoteException;
 	public String Order(String x,int y,String user,String password) throws RemoteException;
+	public String Pay(String x,int y,String user,String password) throws RemoteException;
 }

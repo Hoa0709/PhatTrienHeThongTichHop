@@ -78,7 +78,7 @@ public class FlightImpl extends UnicastRemoteObject implements IFlight{
 		}
 		return id;
 	}	
-	//-----------Edit data--------------
+	
 
 	//------------Display Client--------------
 	@Override
@@ -97,7 +97,7 @@ public class FlightImpl extends UnicastRemoteObject implements IFlight{
 			 s =".-----------------------------------------------------------------------------------------------."
 						+"\n"+"|					Flight Details !!!					|"
 						+"\n"+"*-----------------------------------------------------------------------------------------------*"
-						+"\n"+"\t\tFlight Details:\n\t\t"+"1.Order Tickets\t\t\t"+"2.Cancel"+"\n";
+						+"\n"+"\t\tFlight Details:\n\t"+"1.Order Tickets\t\t"+"2.Pay Tickets\t\t"+"3.Cancel"+"\n";
 			 break;
 		}
 		case 2:{
@@ -114,6 +114,7 @@ public class FlightImpl extends UnicastRemoteObject implements IFlight{
 		}
 		return s;
 	}
+	//-----------Edit data--------------
 	@Override
 	public String Order(String x, int y,String user,String password) throws RemoteException {
 		String s = null;
@@ -124,6 +125,35 @@ public class FlightImpl extends UnicastRemoteObject implements IFlight{
 				if(data[i].getId().equals(x)) {
 					//data[i].setOdered(data[i].getOdered()+y);
 					data[i].setOdered(data[i].getOdered()+y);
+				}
+			}
+			try {
+				FileWriter writer = new FileWriter("D:\\\\Eclipse\\\\Airline\\\\src\\\\com\\\\in4\\\\server\\\\lib.txt");
+				for (int i = 0; i < data.length; i++) {
+					writer.write(data[i].getId()+"\t"+data[i].getDate()+"\t"+data[i].getFrom()+"\t"+data[i].getTo()+"\t"+data[i].getFlyTime()+"\t"+data[i].getTotal()+"\t"+data[i].getOdered()+"\n");
+				}
+				writer.close();
+				s = "Sign up success";
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}else{
+			s = "Sign up fail";
+		}
+		return s;
+	}
+	@Override
+	public String Pay(String x, int y, String user, String password) throws RemoteException {
+		// TODO Auto-generated method stub
+		String s = null;
+		// TODO Auto-generated method stub
+		if(user.equals("iamagoodboy")&&password.equals("123")) {
+			Flight[] data = Data();
+			for (int i = 0; i < data.length; i++) {
+				if(data[i].getId().equals(x)) {
+					//data[i].setOdered(data[i].getOdered()+y);
+					data[i].setOdered(data[i].getOdered()-y);
 				}
 			}
 			try {
