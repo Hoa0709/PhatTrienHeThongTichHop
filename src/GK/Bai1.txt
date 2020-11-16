@@ -1,0 +1,89 @@
+----------------------server---------------------------
+import java.io.IOException;
+import java.io.PrintStream;
+import java.net.ServerSocket;
+import java.net.Socket;
+import java.util.Scanner;
+
+public class Server {
+	
+	public static void main(String[] args) throws IOException{
+		    try {
+				ServerSocket server = new ServerSocket(9000);
+				System.out.println("Server da duoc tao");
+				Socket client = server.accept();
+				System.out.println("Client da ket noi den server");
+				PrintStream outToClient = new PrintStream(client.getOutputStream());
+				Scanner inFromClient = new Scanner(client.getInputStream());
+				while(true) {
+					String Choose = inFromClient.nextLine();
+					switch(Choose) {
+					case "1": {
+						outToClient.println("Server result : "+java.time.LocalTime.now());
+						break;
+					}
+					case "2": {
+						outToClient.println("Server result : "+java.time.LocalDate.now());
+						break;
+					}
+					case "3": {
+						outToClient.println("Server result : "+java.time.LocalDateTime.now());
+						break;
+					}
+					case "exit": {
+						outToClient.println("Goodbye!!!");
+						break;
+					}
+				}
+				}
+				
+				
+				} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+				}
+	}
+}
+
+-----------------------client-------------------------------
+import java.io.IOException;
+import java.io.PrintStream;
+import java.net.Socket;
+import java.net.UnknownHostException;
+import java.util.Scanner;
+
+public class Client {
+	private static Scanner inFromServer;
+	@SuppressWarnings("resource")
+	public static void main(String[] args) {
+		try {		
+			Scanner scan = new Scanner(System.in);
+			System.out.print("Nhap dia chi IP: ");
+			String IP = scan.nextLine();
+			System.out.print("Nhap port: ");
+			String Port = scan.nextLine();
+			Socket client = new Socket(IP, Integer.parseInt(Port));
+			System.out.println("Client da duoc tao");
+			inFromServer = new Scanner(client.getInputStream());
+			PrintStream outToServer = new PrintStream(client.getOutputStream());
+			while(true) {
+				System.out.println("Nhap chuc nang:\n1.Time\n2.Date\n3.Time&Date\n4.Exit(write exit)");
+				String text = scan.nextLine();
+				outToServer.println(text);
+				System.out.println(inFromServer.nextLine());
+				if(text.equals("exit")) {
+					break;
+				}
+				scan.nextLine();
+				
+			}
+		} catch (UnknownHostException e) {
+		// TODO Auto-generated catch block
+		e.printStackTrace();
+		} catch (IOException e) {
+		// TODO Auto-generated catch block
+		e.printStackTrace();
+		}
+		}
+
+}

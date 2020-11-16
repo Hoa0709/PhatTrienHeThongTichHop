@@ -10,7 +10,7 @@ public class MyClient {
 	public static void main(String[] args) {
 		try {
 		@SuppressWarnings("resource")
-		Socket client = new Socket("LocalHost", 9540);
+		Socket client = new Socket("localhost", 9500);
 		System.out.println("Client da duoc tao");
 		Scanner inFromServer = new Scanner(client.getInputStream());
 		PrintStream outToServer = new PrintStream(client.getOutputStream());
