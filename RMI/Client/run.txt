@@ -1,0 +1,3 @@
+javac Client\com\flight\Flight.java Client\com\in4\client\Client.java Client\com\rmi\IFlight.java
+cd Client
+java com/in4/client/Client

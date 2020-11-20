@@ -1,0 +1,5 @@
+javac Server\com\flight\Flight.java Server\com\in4\server\Server.java Server\com\in4\server\FlightImpl.java Server\com\rmi\IFlight.java
+
+start registry
+cd Server
+java com/in4/server/Server
